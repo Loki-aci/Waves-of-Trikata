@@ -1,0 +1,737 @@
+body {
+    margin: 0;
+    padding-top: 4%;
+    background-image: url("Archivos/Burbujas.jpg");
+    background-repeat: repeat;
+    background-size: 8%;
+    position: relative;
+}
+
+.banner img { 
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    border-bottom: 5px solid rgb(6, 6, 12);
+}
+
+@font-face {
+    font-family: 'FuentePersonalizada';
+    src: url('Archivos/Fuentes/Myfont-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'FuenteSecundaria';
+    src: url('Archivos/Fuentes/Quicksand-Medium.ttf') format('truetype');
+}
+
+.nav {
+    font-family: 'FuentePersonalizada';
+    color: #3079D9;
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10%;
+    background: url("Archivos/SupAgua.jpeg") no-repeat center / 100% 100%;
+    border-bottom: 5px solid rgb(6, 6, 12);
+    z-index: 1000;
+}
+
+.logo, .menu_superior a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.logo { width: 10%; }
+.logo img { height: 50px; border-radius: 50%; transition: transform 0.3s; }
+.logo:hover { background-color: rgba(255, 255, 255, 0.6); }
+.logo img:hover { transform: scale(1.2); }  
+
+.menu_superior { width: 90%; display: flex; }
+.menu_superior a {
+    width: 33.33%;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    border-left: 3px solid rgb(6, 6, 12);
+}
+.menu_superior a:hover { background-color: rgba(255, 255, 255, 0.6); color: #00bcd4; }
+.menu_superior a span { transition: transform 0.2s ease; display: inline-block; }
+.menu_superior a:hover span { transform: scale(1.1); }
+
+.banner {
+    width: 100%;
+    overflow: hidden;
+   
+}
+
+.lema {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    text-align: center;
+    color: #3079D9;
+    font-family: 'FuentePersonalizada';
+    margin: 0 20%;
+}
+
+.video, .musica { display: flex; justify-content: center; margin-top: 1%; }
+.musica { margin-top: 5%; }
+.video video, .musica audio { width: 30%; border-radius: 10px; }
+.video video { border: 3px solid #ffffff; }
+.musica audio { box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+.decoracion-botella {
+    position: absolute;
+    width: 25%;
+    z-index: 10;
+    top: 40%;
+    left: 10%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.decoracion-botella img {
+    width: 100%;
+    filter: drop-shadow(10px 10px 15px rgba(0,0,0,0.3));
+}
+
+.contenido {
+    width: 70%;
+    aspect-ratio: 2.5 / 1;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.item { display: none; width: 100%; height: 100%; }
+.item.active { display: block; }
+
+.card {
+    width: 100%;
+    height: 100%;
+    background: url("Archivos/PapelSinFondo.png") no-repeat center / 100% 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.personaje { width: 35%; height: auto; max-height: 80%; object-fit: contain; }
+
+.card-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.card h2 { margin-top: 2%; font-size: 2vw; }
+.card p { font-size: 1.2vw; text-align: center; width: 80%; }
+
+.descipcionJuego {
+    font-family: 'FuenteSecundaria';
+    text-align: justify;
+    color: #000;
+    margin: 0 15%;
+    text-indent: 3%;
+}
+
+.enQueConsiste {
+    font-family: 'FuenteSecundaria';
+    text-align: justify;
+    color: #000;
+    margin-top: 15%;
+    margin: 0 15%;
+    text-indent: 3%;
+}
+
+.seccion-equipo {
+    padding: 80px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.titulo-equipo {
+    font-family: 'FuentePersonalizada', sans-serif;
+    color: #3079D9;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contenedor-equipo-circular {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 750px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eje-brujula {
+    position: relative;
+    z-index: 10;
+}
+
+.brujula-contenedor {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brujula-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.brujula-aguja-contenedor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.aguja-web {
+    width: 16px;
+    height: 160px; 
+    position: relative;
+}
+
+.aguja-web::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 80px solid #e74c3c; /* Color rojo náutico */
+}
+
+.aguja-web::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 80px solid #3079D9; /* Tu color azul */
+}
+
+
+.tarjeta-miembro {
+    position: absolute;
+    width: 280px; 
+    min-height: 160px; 
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(48, 121, 217, 0.25);
+    border-radius: 12px;
+    padding: 20px; 
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-miembro:hover {
+    border-color: #00bcd4;
+    box-shadow: 0 12px 30px rgba(0, 188, 212, 0.15);
+}
+
+.avatar-marco {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2.5px solid #3079D9;
+    overflow: hidden;
+    margin: 0 auto 10px auto;
+}
+
+.avatar-marco img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tarjeta-miembro h3 {
+    font-family: 'FuentePersonalizada', sans-serif;
+    margin: 4px 0;
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.tarjeta-miembro .rol {
+    font-family: 'FuenteSecundaria', sans-serif;
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.tarjeta-miembro p:not(.rol) {
+    font-family: 'FuenteSecundaria', sans-serif;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.pos-1 { transform: translate(0px, -310px); }       /* 0° (Arriba) */
+.pos-2 { transform: translate(320px, -160px); }    /* 60° (Arriba Derecha) */
+.pos-3 { transform: translate(320px, 160px); }     /* 120° (Abajo Derecha) */
+.pos-4 { transform: translate(0px, 310px); }        /* 180° (Abajo) */
+.pos-5 { transform: translate(-320px, 160px); }    /* 240° (Abajo Izquierda) */
+.pos-6 { transform: translate(-320px, -160px); }   /* 300° (Arriba Izquierda) */
+
+
+.contenedor-equipo-circular {
+    position: relative;
+    width: 100%;
+    max-width: 1100px; 
+    height: 850px;     
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1024px) { 
+    .contenedor-equipo-circular {
+        height: auto;
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px 0;
+    }
+    
+    .eje-brujula {
+        position: static;
+        margin-bottom: 30px;
+    }
+
+    .tarjeta-miembro {
+        position: static; 
+        transform: none !important;
+        width: 90%;
+        max-width: 400px; 
+    }
+}
+
+.footer {
+    background: url("Archivos/suelo.png") no-repeat center / 100% 100%;
+    padding: 1%;
+    color: white;
+    text-align: center;
+}
+
+.plataformas img { width: 3%; margin: 1%; }
+
+.redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; 
+    height: 35px;
+    overflow: hidden;
+}
+
+.redes img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.redes img:hover {
+    transform: scale(1.1); 
+}
+
+
+
+
+.titulo-contribuciones {
+    font-family: 'FuentePersonalizada';
+    color: rgb(0, 0, 0);
+    font-size: 3vw;
+    margin-bottom: 40px;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contenedor-burbujas {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.burbuja-card {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(48, 121, 217, 0.6));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3), 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+
+
+.burbuja-card:nth-child(2) {
+    margin-top: 80px;
+}
+
+.burbuja-card h3 {
+    font-family: 'FuentePersonalizada';
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.burbuja-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.burbuja-card ul li::before {
+    content: "•";
+    margin-right: 5px;
+}
+
+.titulo-objetivos {
+    font-family: 'FuentePersonalizada';
+    color: rgb(0, 0, 0);
+    font-size: 3vw;
+    margin-bottom: 40px;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.cuatro-columnas {
+    max-width: 1200px;
+    margin-top: 10vh;
+}
+
+.burbuja-card.objetivo {
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), rgba(0, 188, 212, 0.5));
+}
+
+.cuatro-columnas .burbuja-card:nth-child(even) {
+    margin-top: 60px;
+}
+
+.cuatro-columnas .burbuja-card:nth-child(odd) {
+    margin-top: 0px;
+}
+
+.objetivo-minimo {
+    color: white;
+    font-family: 'FuenteSecundaria';
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.burbuja-card.objetivo h3 {
+    font-size: 1.8rem;
+}
+
+.burbuja-card.objetivo ul {
+    font-size: 0.85rem;
+}
+
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.burbuja-card {
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.burbuja-card:nth-child(2) { animation-delay: 1s; }
+.burbuja-card:nth-child(3) { animation-delay: 2s; }
+.burbuja-card:nth-child(4) { animation-delay: 3s; }
+
+
+.seccion-donaciones {
+    max-width: 800px;
+    margin: 60px auto 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'FuenteSecundaria', sans-serif;
+}
+
+.info-donaciones {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.info-donaciones .recaudado strong {
+    color: #3079D9; 
+    font-size: 1.4rem;
+}
+
+.barra-progreso-contenedor {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+    border: 2px solid rgba(6, 6, 12, 0.2);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.barra-progreso-llenado {
+    height: 100%;
+    background: linear-gradient(90deg, #3079D9, #00bcd4); 
+    border-radius: 13px 0 0 13px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: width 1s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.porcentaje-texto {
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 15px;
+}
+
+.boton-donar {
+    font-family: 'FuentePersonalizada', sans-serif;
+    background-color: #3079D9;
+    color: white;
+    font-size: 1.5rem;
+    padding: 12px 40px;
+    border: 3px solid rgb(6, 6, 12);
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(48, 121, 217, 0.4);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.boton-donar:hover {
+    background-color: #00bcd4; 
+    transform: scale(1.08);
+}
+
+.boton-donar:active {
+    transform: scale(0.98);
+}
+
+
+
+.titulo-FAQ {
+    font-family: 'FuentePersonalizada';
+    color: rgb(0, 0, 0);
+    font-size: 3vw;
+    margin-bottom: 40px;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contenedor-botellas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 60px 40px; 
+    max-width: 1000px;
+    margin: 50px auto; 
+    justify-items: center;
+}
+
+@media (max-width: 768px) {
+    .contenedor-botellas {
+        grid-template-columns: 1fr;
+    }
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    position: relative;
+}
+
+.botella-cerrada {
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: flotarBotella 3s ease-in-out infinite;
+    position: relative;
+}
+
+.botella-cerrada img {
+    width: 100%;
+}
+
+.numero-pregunta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(0, 0, 0);
+    font-family: 'FuentePersonalizada';
+    font-size: 2rem;
+    pointer-events: none;
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+    position: relative;
+}
+
+.pergamino-mensaje {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s, padding 0.5s, margin 0.5s;
+    
+    background-image: url("Archivos/PapelSinFondo.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    color: #333;
+    text-align: center;
+    
+    width: 320px;
+    margin-left: -35px;
+    
+    padding: 0 40px; 
+    margin-top: 0;
+}
+
+.faq-item.abierto .pergamino-mensaje {
+    opacity: 1;
+    max-height: 600px; 
+    
+    padding: 60px 40px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pergamino-mensaje h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.pergamino-mensaje p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.faq-item.abierto .botella-cerrada {
+    animation-play-state: paused;
+    transform: rotate(15deg) scale(1.1);
+}
+
+@keyframes flotarBotella {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+.comentarios{
+     margin: 10%;
+}
+.separador{
+    width: 100vw;
+    height: 1vh;
+    background: url("Archivos/Negro.jpg");
+    
+}
+.banner-contenedor {
+    position: relative;
+    width: 100%;
+}
+
+.banner-contenedor img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    display: block;
+}
+
+.titulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    z-index: 2;
+    
+    font-family: 'FuentePersonalizada';
+    color: #3079D9;
+    font-size: 2rem;
+    text-align: center;
+    top: 30%;
+}
+.personaje{
+    margin-left: 10%;
+}
